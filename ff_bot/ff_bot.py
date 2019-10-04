@@ -353,23 +353,23 @@ if __name__ == '__main__':
     #score update:                       sunday at 4pm, 8pm east coast time.
 
     sched.add_job(bot_main, 'cron', ['get_power_rankings'], id='power_rankings',
-        day_of_week='tue', hour=18, minute=30, start_date=ff_start_date, end_date=ff_end_date,
+        day_of_week='tue', hour=15, minute=00, start_date=ff_start_date, end_date=ff_end_date,
         timezone=my_timezone, replace_existing=True)
     sched.add_job(bot_main, 'cron', ['get_matchups'], id='matchups',
         day_of_week='thu', hour=19, minute=30, start_date=ff_start_date, end_date=ff_end_date,
         timezone=game_timezone, replace_existing=True)
-    sched.add_job(bot_main, 'cron', ['get_close_scores'], id='close_scores',
+    '''sched.add_job(bot_main, 'cron', ['get_close_scores'], id='close_scores',
         day_of_week='mon', hour=18, minute=30, start_date=ff_start_date, end_date=ff_end_date,
-        timezone=game_timezone, replace_existing=True)
+        timezone=game_timezone, replace_existing=True)'''
     sched.add_job(bot_main, 'cron', ['get_final'], id='final',
-        day_of_week='tue', hour=7, minute=30, start_date=ff_start_date, end_date=ff_end_date,
+        day_of_week='tue', hour=10, minute=00, start_date=ff_start_date, end_date=ff_end_date,
         timezone=my_timezone, replace_existing=True)
     sched.add_job(bot_main, 'cron', ['get_scoreboard_short'], id='scoreboard1',
-        day_of_week='fri,mon', hour=7, minute=30, start_date=ff_start_date, end_date=ff_end_date,
+        day_of_week='mon', hour=14, minute=30, start_date=ff_start_date, end_date=ff_end_date,
         timezone=my_timezone, replace_existing=True)
-    sched.add_job(bot_main, 'cron', ['get_scoreboard_short'], id='scoreboard2',
+    '''sched.add_job(bot_main, 'cron', ['get_scoreboard_short'], id='scoreboard2',
         day_of_week='sun', hour='16,20', start_date=ff_start_date, end_date=ff_end_date,
-        timezone=game_timezone, replace_existing=True)
+        timezone=game_timezone, replace_existing=True)'''
 
     print("Ready!")
     sched.start()
